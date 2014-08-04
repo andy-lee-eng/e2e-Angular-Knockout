@@ -1,0 +1,8 @@
+{
+  "name": "node-backend",
+  "version": "0.0.0",
+  "devDependencies": {
+    "http": "0.0.0",
+    "query-string": "^0.4.1"
+  }
+}
