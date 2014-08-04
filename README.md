@@ -1,47 +1,60 @@
-Angular-vs-Knockout
+End-to-End testing a Single Page Application using Angular or Knockout
 ===================
 
-An implementation of the same SPA in both AngularJS and KnockoutJS (with CrossroadsJS and RequireJS)
+An implementation of the same SPA in both AngularJS and KnockoutJS (with CrossroadsJS and RequireJS), with a suite of end-to-end tests in both solutions.
 
 ###Introduction
-The Angular version was built up from the angular-seed project, which is here: https://github.com/angular/angular-seed
+This is a follow-up project from my [Angular-vs-Knockout](https://github.com/DevAndyLee/Angular-vs-Knockout) project. Here, I have implemented a suite of end-to-end tests in both projects, using a mocked server to improve the robustness of the tests.
 
-The Knockout version was scaffolded using yeoman, and includes CrossroadsJS and RequireJS.
-
-A live demo of both apps is available here:
-
-[Knockout Version](https://rawgit.com/DevAndyLee/Angular-vs-Knockout/master/Dist/Knockout/index.html)
-
-[Angular Version](https://rawgit.com/DevAndyLee/Angular-vs-Knockout/master/Dist/Angular/index.html)
-
-The app presents a list of investments in a portfolio, and lets you filter them by name while dynamically updating all the components.
-You can also click through view details of each investment or view the about page, all within the same SPA.
-
-Html, javascript and css is packaged up and minified for the app home screen, while navigating to additional screens triggers a request for the additional content.
-
-Both apps have a mocked back end, so that they behave as though they're making ajax requests without actually needing a server to respond to those requests.
-
-
-###Installation:
+###Installation
 
 From both the AngularFrontEnd and KnockoutFrontEnd folders:
 ```
 npm install
 ```
 
-###Start the web servers:
+###Start the servers
 
-Use the node http server to host the content locally:
-```
-call http-server AngularFrontEnd\app –p 8082 -o -c-1
-call http-server KnockoutFrontEnd\src –p 8081 -o -c-1
-```
+Use node to run the back-end server:
 
-###Build and optimise:
-
-From both the AngularFrontEnd and KnockoutFrontEnd folders:
 ```
-gulp
+call node NodeBackEnd\index.js
 ```
 
-Gulp creates a /dist folder containing the compiled and optimised version of the site.
+Use the node http server to host the web site locally:
+
+```
+call http-server AngularFrontEnd\app â€“p 8082 -o -c-1
+call http-server KnockoutFrontEnd\src â€“p 8081 -o -c-1
+```
+
+###Run the end-to-end tests
+
+####For the Angular project
+
+Run the unit tests from the AngularFrontEnd folder:
+
+```
+Protractor test/protractor-conf.js
+```
+
+####For the Knockout project
+
+Install [jasmine-node](https://github.com/mhevery/jasmine-node): 
+
+```
+npm install jasmine-node -g
+```
+
+Install the [Chrome Driver for Selenium](https://code.google.com/p/selenium/wiki/ChromeDriver), and add ChromeDriver to you PATH:
+
+```
+SET PATH=%PATH%;C:\....\npm\node_modules\chromedriver\lib\chromedriver
+```
+
+Run the unit tests from the KnockoutFrontEnd folder:
+
+```
+jasmine-node test/e2e/ --captureExceptions
+
+```
