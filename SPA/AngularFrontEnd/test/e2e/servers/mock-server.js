@@ -7,12 +7,12 @@ function MockServer() {
     var testResponses = [];
     var server = http.createServer(function (request, response) {
         var urlParts = url.parse(request.url);
-        var pathname = urlParts.pathname;
+        var requestPath = urlParts.pathname + urlParts.search;
 
-        // Lookup the mocked response (in reverse so later response take precedence)
+        // Lookup the mocked response
         var result = [];
         for (var n = 0; n < testResponses.length ; n++) {
-            if (testResponses[n].path === urlParts.pathname + urlParts.search) {
+            if (testResponses[n].path === requestPath) {
                 result = testResponses[n].response;
             }
         }

@@ -56,5 +56,4 @@ Run the unit tests from the KnockoutFrontEnd folder:
 
 ```
 jasmine-node test/e2e/ --captureExceptions
-
 ```
