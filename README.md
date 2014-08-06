@@ -6,6 +6,9 @@ An implementation of the same SPA in both AngularJS and KnockoutJS (with Crossro
 ###Introduction
 This is a follow-up project from my [Angular-vs-Knockout](https://github.com/DevAndyLee/Angular-vs-Knockout) project. Here, I have implemented a suite of end-to-end tests in both projects, using a mocked server to improve the robustness of the tests.
 
+The accompanying blog post is here:
+[End-to-end testing with Angular and Knockout](http://www.scottlogic.com/blog/2014/08/06/angular-knockout-e2e-testing.html)
+
 ###Installation
 
 From both the AngularFrontEnd and KnockoutFrontEnd folders:
